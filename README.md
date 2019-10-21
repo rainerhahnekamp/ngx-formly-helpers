@@ -4,6 +4,8 @@ ngx-formly is an Angular library. It simplifies the creation of forms by a decla
 
 ngrx-formly-helper provides opt-in functions for form fields that are used most of the time. Especially with form-centric applications, it reduces the verbosity and makes the code more readable.
 
+A demo is available on: https://stackblitz.com/github/rainerhahnekamp/ngx-formly-helpers-example
+
 For example following ngx-formly config:
 
 ```typescript
