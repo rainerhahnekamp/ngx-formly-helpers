@@ -59,7 +59,21 @@ function number(
   });
 }
 
-function required(
+function requiredNumber(
+  key: string,
+  label: string,
+  templateOptions = {},
+  otherOptions: FormlyFieldConfig = {}
+): FormlyFieldConfig {
+  return number(
+    key,
+    label,
+    { ...templateOptions, required: true },
+    otherOptions
+  );
+}
+
+function requiredText(
   key: string,
   label: string,
   templatOptions = {},
@@ -73,6 +87,14 @@ function hidden(key: string): FormlyFieldConfig {
 }
 
 function checkbox(
+  key: string,
+  label: string,
+  templateOptions = {}
+): FormlyFieldConfig {
+  return field(key, "checkbox", label, templateOptions);
+}
+
+function requiredCheckbox(
   key: string,
   label: string,
   templateOptions = {}
@@ -125,6 +147,19 @@ function radio(
   return field(key, "radio", label, { options, ...templateOptions });
 }
 
+function requiredRadio(
+  key: string,
+  label: string = "",
+  options: any[],
+  templateOptions: FormlyTemplateOptions = {}
+) {
+  return field(key, "radio", label, {
+    options,
+    ...templateOptions,
+    required: true
+  });
+}
+
 function date(
   key: string,
   label: string,
@@ -132,6 +167,21 @@ function date(
   otherOptions: FormlyFieldConfig = {}
 ) {
   return field(key, "datepicker", label, templateOptions, otherOptions);
+}
+
+function requiredDate(
+  key: string,
+  label: string,
+  templateOptions: FormlyTemplateOptions = {},
+  otherOptions: FormlyFieldConfig = {}
+) {
+  return field(
+    key,
+    "datepicker",
+    label,
+    { ...templateOptions, required: true },
+    otherOptions
+  );
 }
 
 function textArea(
@@ -151,45 +201,25 @@ function requiredTextArea(
   return requiredField(key, "textarea", label, templatOptions, otherOptions);
 }
 
-function shiftDate(
-  key: string,
-  label: string,
-  templateOptions: FormlyTemplateOptions = {},
-  otherOptions: FormlyFieldConfig = {}
-) {
-  return field(key, "shiftDate", label, templateOptions, otherOptions);
-}
-
-function requiredShiftDate(
-  key: string,
-  label: string,
-  templateOptions: FormlyTemplateOptions = {},
-  otherOptions: FormlyFieldConfig = {}
-) {
-  return shiftDate(
-    key,
-    label,
-    { required: true, ...templateOptions },
-    otherOptions
-  );
-}
-
 export const formly = {
   field,
   requiredField,
+  required: requiredField,
   text,
-  required,
+  requiredText,
   number,
+  requiredNumber,
   hidden,
   checkbox,
+  requiredCheckbox,
   select,
   requiredSelect,
   multiSelect,
   requiredMultiSelect,
   radio,
+  requiredRadio,
   date,
+  requiredDate,
   textArea,
-  requiredTextArea,
-  shiftDate,
-  requiredShiftDate
+  requiredTextArea
 };

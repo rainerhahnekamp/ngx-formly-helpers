@@ -4,5 +4,6 @@
     "moduleResolution": "node",
     "target": "es2015",
     "outDir": "./dist"
-  }
+  },
+  "exclude": ["example"]
 }

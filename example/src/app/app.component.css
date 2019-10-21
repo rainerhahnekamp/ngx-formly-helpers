@@ -1,0 +1,6 @@
+div.forms {
+  display: flex;
+}
+div.forms > * {
+  flex-grow: 0;
+}
