@@ -204,7 +204,6 @@ function requiredTextArea(
 export const formly = {
   field,
   requiredField,
-  required: requiredField,
   text,
   requiredText,
   number,

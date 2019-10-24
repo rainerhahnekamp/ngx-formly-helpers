@@ -54,7 +54,7 @@ Can be reduced with ngx-formly-helpers to:
 ```typescript
 this.fields = [
   formly.text("firstname", "Firstname"),
-  formly.required("lastname", "Lastname"),
+  formly.requiredText("lastname", "Lastname"),
   formly.date("birthday", "Geburtstag"),
   formly.number("height", "Height (inches)"),
   formly.radio("gender", "Gender", [
